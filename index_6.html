@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sutikshna Tiwari — Finance & Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.2}
+h1{font-size:3.2rem;margin-bottom:16px}
+h2{font-size:2rem;margin-bottom:12px}
+a{color:#2563eb;text-decoration:none;transition:color .2s}a:hover{color:#b8953a}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid #ddd;padding:16px 48px}
+nav>div{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Lora',serif;font-size:1.2rem;font-weight:700}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.85rem;font-weight:500;color:#666;text-decoration:none;letter-spacing:.5px}
+.nav-links a:hover{color:#1a1a1a}
+#hero{padding:100px 48px 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero-text h1{color:#1a1a1a;margin-bottom:24px}
+.hero-text .highlight{color:#b8953a}
+.hero-desc{font-size:1.1rem;color:#666;line-height:1.8;margin-bottom:32px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:#1a1a1a;color:#fff;padding:12px 32px;border-radius:6px;font-weight:500;font-size:.9rem;letter-spacing:.3px;text-decoration:none;display:inline-block;border:none;cursor:pointer;transition:background .2s}
+.btn-primary:hover{background:#b8953a;color:#1a1a1a}
+.btn-secondary{border:2px solid #1a1a1a;color:#1a1a1a;padding:11px 31px;border-radius:6px;font-weight:500;font-size:.9rem;letter-spacing:.3px;text-decoration:none;display:inline-block;background:transparent;cursor:pointer;transition:all .2s}
+.btn-secondary:hover{border-color:#b8953a;color:#b8953a}
+.hero-image{width:100%;max-width:400px;aspect-ratio:3/4;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.1)}
+.hero-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.section{padding:100px 48px;max-width:1200px;margin:0 auto}
+.section.alt{background:#f3f4f6}
+.section-header{max-width:640px;margin-bottom:60px}
+.section-header h2{margin-bottom:16px}
+.section-header p{font-size:1.05rem;color:#666;line-height:1.75}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.story-text p{font-size:1.05rem;color:#666;line-height:1.9;margin-bottom:20px}
+.story-text strong{color:#1a1a1a;font-weight:600}
+.story-text em{color:#b8953a;font-style:italic}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:40px;padding-top:40px;border-top:1px solid #ddd}
+.stat-num{font-family:'Lora',serif;font-size:2.4rem;font-weight:700;color:#b8953a}
+.stat-label{font-size:.85rem;color:#666;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.info-cards{display:flex;flex-direction:column;gap:16px}
+.info-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:20px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
+.info-card:hover{border-color:#b8953a}
+.ic-icon{width:40px;height:40px;border-radius:8px;flex-shrink:0;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.ic-title{font-weight:600;margin-bottom:4px;font-size:.95rem}
+.ic-body{color:#666;font-size:.9rem;line-height:1.6}
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:20px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,#b8953a,rgba(184,149,58,.2),transparent)}
+.tl-item{display:flex;gap:32px;padding-bottom:40px;position:relative}
+.tl-dot{width:40px;height:40px;border-radius:50%;background:#fff;border:3px solid #b8953a;flex-shrink:0;z-index:1;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.tl-role{font-weight:700;font-size:1.1rem;color:#1a1a1a}
+.tl-date{font-size:.75rem;color:#fff;background:#b8953a;padding:4px 12px;border-radius:100px;font-weight:600;letter-spacing:.5px}
+.tl-company{color:#2563eb;font-size:.9rem;font-weight:600;margin-bottom:12px}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.tl-list li{color:#666;font-size:.95rem;line-height:1.75;padding-left:16px}
+.tl-list li::before{content:'→';position:absolute;left:0;color:#b8953a;font-weight:700}
+.tl-list li strong{color:#1a1a1a;font-weight:600}
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.skill-group h3{margin-bottom:8px;font-size:1.15rem}
+.skill-group p{color:#666;font-size:.95rem;line-height:1.75;margin-bottom:16px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{background:#f3f4f6;color:#1a1a1a;padding:6px 14px;border-radius:100px;font-size:.8rem;font-weight:500;border:1px solid #ddd;transition:all .2s}
+.skill-tag:hover{background:#b8953a;color:#fff;border-color:#b8953a}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.project-card{background:#fff;border:1px solid #ddd;border-radius:12px;overflow:hidden;transition:all .3s}
+.project-card:hover{border-color:#b8953a;box-shadow:0 16px 40px rgba(0,0,0,.08);transform:translateY(-4px)}
+.proj-image{width:100%;aspect-ratio:16/9;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:2.4rem}
+.proj-body{padding:24px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.proj-tag{font-size:.7rem;font-weight:600;background:#f3f4f6;color:#1a1a1a;padding:4px 10px;border-radius:4px}
+.proj-title{font-family:'Lora',serif;font-size:1.15rem;font-weight:600;margin-bottom:10px}
+.proj-desc{color:#666;font-size:.9rem;line-height:1.7;margin-bottom:16px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}
+.contact-links{display:flex;flex-direction:column;gap:12px}
+.contact-item{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 18px;text-decoration:none;transition:border-color .2s}
+.contact-item:hover{border-color:#b8953a}
+.contact-section{padding:80px 48px;max-width:1200px;margin:0 auto;text-align:center;border-top:1px solid #ddd}
+footer{border-top:1px solid #ddd;padding:40px 48px;text-align:center;color:#666;font-size:.85rem}
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;text-align:center}.hero-cta{justify-content:center}
+  .story-grid,.skills-grid,.contact-grid{grid-template-columns:1fr}
+  .section{padding:80px 24px}
+  h1{font-size:2.4rem}
+}
+@media(max-width:600px){
+  h1{font-size:1.8rem}
+  #hero{padding:60px 20px}
+  .section{padding:60px 20px}
+  nav{padding:12px 16px}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div><div class="logo">Sutikshna Tiwari</div><ul class="nav-links"><li><a href="#story">Story</a></li><li><a href="#experience">Experience</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#education">Credentials</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<div id="hero">
+  <div class="hero-text">
+    <h1>Finance & Strategy <span class="highlight">Across Markets</span></h1>
+    <p class="hero-desc">MBA/MS candidate at BU Questrom. Summer TA at Training The Street delivering finance modeling, M&A, and LBO training to Jefferies, BCG, Harris Williams, Truist, Citizens Bank. 5 years venture-backed finance. Dean's Scholar. Bloomberg Certified.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMU/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlbaWmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD/AJ+ooooA//Z" alt="Sutikshna Tiwari"/>
+    </div>
+</div>
+
+<div class="section alt" id="story">
+  <div class="section-header">
+    <h2>A Story Rooted in <span class="highlight">Commerce</span></h2>
+    <p>Four generations of family business shaped how I think about finance, margin, and building real value.</p>
+  </div>
+  <div class="story-grid">
+    <div class="story-text">
+      <p>I grew up in <strong>Kolkata, India</strong>, in a family that has been in fresh produce trading for over <em>100 years</em>. That foundation shaped my instinct for commerce. I studied <strong>Accounting & Finance</strong> at Jadavpur University, then moved to startup environments where that intuition became professional practice.</p>
+      <p>At <strong>BuyBindass</strong> (D2C), I co-founded finance from zero. At <strong>Nivoda</strong> (Headline-backed), I led a <strong>$11M Series A</strong>. At <strong>Acro Service Corp</strong>, I partnered with C-suites, improved margins $4M+, and won $8M+ Fortune 500 contracts. Now at <strong>BU Questrom</strong>, I'm teaching next-generation finance professionals as Summer TA at Training The Street.</p>
+      <div class="stats-grid">
+        <div><div class="stat-num">100+</div><div class="stat-label">Years Family Business</div></div>
+        <div><div class="stat-num">5</div><div class="stat-label">Years in Finance</div></div>
+        <div><div class="stat-num">$11M</div><div class="stat-label">Series A Led</div></div>
+        <div><div class="stat-num">18pp</div><div class="stat-label">Margin Improved</div></div>
+      </div>
+    </div>
+    <div class="info-cards">
+      <div class="info-card">
+        <div class="ic-icon">🎓</div>
+        <div><div class="ic-title">Education</div><div class="ic-body"><strong>MBA/MS Digital Technology</strong> — Boston University Questrom, 2025–2027. Dean's Scholar. Forte Fellow.</div></div>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">📍</div>
+        <div><div class="ic-title">Current Role</div><div class="ic-body"><strong>Summer TA, Training The Street</strong> — Finance modeling, M&A, LBO training to Jefferies, BCG, Harris Williams, Truist, Citizens Bank.</div></div>
+      </div>
+      <div class="info-card">
+        <div class="ic-icon">🌿</div>
+        <div><div class="ic-title">Roots</div><div class="ic-body"><strong>Kolkata, India</strong> — 100+ year family trading business, 4 generations</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="experience">
+  <div class="section-header">
+    <h2>Professional Journey</h2>
+    <p>Three distinct chapters — each building on the last, across India and the US.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">📊</div>
+      <div>
+        <div style="display:flex;gap:12px;margin-bottom:8px"><div class="tl-role">Financial Analyst</div><div class="tl-date">Apr 2023 – Jul 2025</div></div>
+        <div class="tl-company">Acro Service Corp</div>
+        <ul class="tl-list">
+          <li>Managed 5 P&Ls ($50M+ revenue); EBITDA 12% → 20% (<strong>$4M+ impact</strong>)</li>
+          <li>Python/Power BI automation; forecast cycle <strong>57% faster (7 → 3 days)</strong></li>
+          <li>Built 20+ KPI dashboards; won <strong>$8M+ Fortune 500 contracts</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">💎</div>
+      <div>
+        <div style="display:flex;gap:12px;margin-bottom:8px"><div class="tl-role">Finance Associate</div><div class="tl-date">Mar 2022 – Apr 2023</div></div>
+        <div class="tl-company">Nivoda (Headline-backed B2B Diamond Marketplace)</div>
+        <ul class="tl-list">
+          <li>Led <strong>$11M Series A due diligence</strong> → $55M valuation</li>
+          <li>Built MIS framework across 6 geographies; supported <strong>80% YoY growth</strong></li>
+          <li>SKU profitability analysis; gross margin <strong>35% → 53% (18pp gain)</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🚀</div>
+      <div>
+        <div style="display:flex;gap:12px;margin-bottom:8px"><div class="tl-role">Summer TA — Training The Street</div><div class="tl-date">2026–Present</div></div>
+        <div class="tl-company">Training The Street</div>
+        <ul class="tl-list">
+          <li>Delivering premium finance education to institutional clients</li>
+          <li>Clients: Jefferies, BCG, Harris Williams, Truist, Citizens Bank, and more</li>
+          <li>Curriculum: Financial Modeling, M&A Mechanics, LBO Analysis, Case Studies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section alt" id="skills">
+  <div class="section-header">
+    <h2>What I Bring</h2>
+    <p>A finance professional who bridges rigorous analysis with strategic clarity.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Financial Modeling</h3>
+      <p>I build models that drive decisions — DCF, LBO, 3-statement models, scenario analysis.</p>
+      <div class="skill-tags"><span class="skill-tag">3-Statement</span><span class="skill-tag">DCF</span><span class="skill-tag">LBO</span><span class="skill-tag">Scenario</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Technical Tools</h3>
+      <p>I automate the repetitive and focus on insight. Python, Power BI, advanced Excel.</p>
+      <div class="skill-tags"><span class="skill-tag">Excel/VBA</span><span class="skill-tag">Python</span><span class="skill-tag">Power BI</span><span class="skill-tag">SQL</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Strategic Finance</h3>
+      <p>From Series A due diligence to FP&A systems from scratch, I drive capital allocation.</p>
+      <div class="skill-tags"><span class="skill-tag">FP&A</span><span class="skill-tag">Due Diligence</span><span class="skill-tag">M&A</span><span class="skill-tag">Unit Economics</span></div>
+    </div>
+    <div class="skill-group">
+      <h3>Communication & Teaching</h3>
+      <p>Finance creates value when it's understood. Executive presentations, investor pitches, education.</p>
+      <div class="skill-tags"><span class="skill-tag">Presentations</span><span class="skill-tag">Pitching</span><span class="skill-tag">Teaching</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="projects">
+  <div class="section-header">
+    <h2>Featured Projects</h2>
+    <p>Finance analysis, valuations, M&A work, and case competition wins.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="proj-image">🤖</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">ML</span><span class="proj-tag">PYTHON</span></div>
+        <div class="proj-title">M&A Risk & Synergy Analyzer</div>
+        <div class="proj-desc">Multi-model distress scoring (Beneish, XGBoost, NLP) across 7 sectors. 100+ year backtesting. Real-time yfinance data integration.</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-image">🏆</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">CASE WIN</span></div>
+        <div class="proj-title">BVC Best of the Board — 1st Place 🥇</div>
+        <div class="proj-desc">Cannabis D2C subscription model. 10% YoY sales growth projected. TAM expansion across Massachusetts.</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-image">💎</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">SERIES A</span></div>
+        <div class="proj-title">Nivoda — $11M Series A Diligence</div>
+        <div class="proj-desc">Headline-led funding at $55M post-money. 500+ SKU profitability analysis. 18pp gross margin improvement.</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-image">📊</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">EQUITY RESEARCH</span></div>
+        <div class="proj-title">Sweetgreen Investment Analysis</div>
+        <div class="proj-desc">Demand elasticity (ε = −4.04). Proposed Infinite Kitchen pivot: margins 19.6% → 37%.</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-image">⚓</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">DCF</span></div>
+        <div class="proj-title">Ocean Carriers — DCF Valuation</div>
+        <div class="proj-desc">15-year model. US vs HK tax regimes. Intrinsic value $13.32/share. Sensitivity analysis.</div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="proj-image">🌍</div>
+      <div class="proj-body">
+        <div class="proj-tags"><span class="proj-tag">STRATEGY</span></div>
+        <div class="proj-title">Africa Expansion Strategy</div>
+        <div class="proj-desc">54-nation site selection. South Africa primary, Morocco secondary. 10-year model.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section alt" id="education">
+  <div class="section-header">
+    <h2>Education & Credentials</h2>
+    <p>Graduate and undergraduate degrees, professional certifications.</p>
+  </div>
+  <div style="max-width:900px;margin:0 auto">
+    <h3 style="margin-bottom:20px;font-size:1.15rem">Academic</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:40px">
+      <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:24px">
+        <div style="font-size:.7rem;font-weight:700;color:#b8953a;margin-bottom:8px">GRADUATE</div>
+        <div style="font-weight:600;margin-bottom:6px">MBA/MS Digital Technology</div>
+        <div style="color:#666;font-size:.85rem;margin-bottom:12px">Boston University Questrom · 2025–2027</div>
+        <div style="color:#666;font-size:.9rem">Corporate Finance concentration. Dean's Scholar. Forte Fellow.</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:24px">
+        <div style="font-size:.7rem;font-weight:700;color:#b8953a;margin-bottom:8px">UNDERGRADUATE</div>
+        <div style="font-weight:600;margin-bottom:6px">BBA Accounting & Finance</div>
+        <div style="color:#666;font-size:.85rem;margin-bottom:12px">Jadavpur University, J.D. Birla · 2020</div>
+        <div style="color:#666;font-size:.9rem">Graduated with distinction.</div>
+      </div>
+    </div>
+    <h3 style="margin-bottom:20px;font-size:1.15rem">Certifications</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:20px">
+        <div style="font-weight:600;margin-bottom:3px">Bloomberg Market Concepts</div>
+        <div style="color:#b8953a;font-size:.75rem;font-weight:600">Bloomberg for Education</div>
+        <div style="margin-top:8px;display:inline-block;padding:2px 8px;background:rgba(184,149,58,.1);border:1px solid rgba(184,149,58,.15);border-radius:4px;font-size:.65rem;font-weight:600;color:#b8953a">✅ Completed</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:20px">
+        <div style="font-weight:600;margin-bottom:3px">Bloomberg Finance Fundamentals</div>
+        <div style="color:#b8953a;font-size:.75rem;font-weight:600">Bloomberg for Education</div>
+        <div style="margin-top:8px;display:inline-block;padding:2px 8px;background:rgba(184,149,58,.1);border:1px solid rgba(184,149,58,.15);border-radius:4px;font-size:.65rem;font-weight:600;color:#b8953a">✅ Completed</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ddd;border-radius:10px;padding:20px">
+        <div style="font-weight:600;margin-bottom:3px">FRM Part 2</div>
+        <div style="color:#b8953a;font-size:.75rem;font-weight:600">GARP</div>
+        <div style="margin-top:8px;display:inline-block;padding:2px 8px;background:rgba(184,149,58,.1);border:1px solid rgba(184,149,58,.15);border-radius:4px;font-size:.65rem;font-weight:600;color:#b8953a">📘 In Progress</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" id="contact">
+  <h2>Let's Connect</h2>
+  <p style="margin-top:16px;color:#666">Open to collaborations and conversations about finance, strategy, and education.</p>
+  <div class="contact-grid" style="margin-top:40px">
+    <div class="contact-links">
+      <a href="mailto:sunny98@bu.edu" class="contact-item">📧 Email: sunny98@bu.edu</a>
+      <a href="https://linkedin.com/in/sutikshna-tiwari" target="_blank" class="contact-item">💼 LinkedIn: sutikshna-tiwari</a>
+      <a href="tel:732-318-1534" class="contact-item">📞 732-318-1534</a>
+      <div class="contact-item" style="cursor:default">📍 Boston, MA</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Sutikshna Tiwari · MBA/MS Candidate, Boston University Questrom · Boston, MA · 2026</p>
+</footer>
+
+</body>
+</html>
